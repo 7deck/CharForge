@@ -1,0 +1,13 @@
+fastapi[standard]
+comfy-cli
+huggingface_hub[hf_transfer]
+surrealist
+pymatting
+requests
+fal-client
+together
+openai
+jaxtyping
+typeguard
+python-dotenv
+onnxruntime-gpu

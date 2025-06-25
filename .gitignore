@@ -1,0 +1,16 @@
+.idea/
+__pycache__/
+workflows/__pycache__/
+workflows/web/
+.env
+venv/
+.venv/
+.cursorignore
+.ipynb_checkpoints/
+.vscode/
+trash/
+.idea/
+output/
+.gradio/
+scratch/
+.cache/

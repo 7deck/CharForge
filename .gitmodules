@@ -1,0 +1,15 @@
+[submodule "MV_Adapter"]
+	path = MV_Adapter
+	url = https://github.com/RishiDesai/MV-Adapter.git
+[submodule "ComfyUI_AutoCropFaces"]
+	path = ComfyUI_AutoCropFaces
+	url = https://github.com/RishiDesai/ComfyUI-AutoCropFaces.git
+[submodule "ComfyUI"]
+	path = ComfyUI
+	url = https://github.com/RishiDesai/ComfyUI.git
+[submodule "ai_toolkit"]
+	path = ai_toolkit
+	url = https://github.com/ostris/ai-toolkit.git
+[submodule "LoRACaptioner"]
+	path = LoRACaptioner
+	url = https://github.com/RishiDesai/LoRACaptioner.git

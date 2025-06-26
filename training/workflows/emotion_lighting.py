@@ -149,6 +149,10 @@ from nodes import (
 @torch.inference_mode()
 def load_models():
     """Load all the models needed for the emotion lighting pipeline and return them in a dictionary."""
+    from .upscale_grid_image import initialize_upscale_models
+    
+    # Ensure upscale models are loaded before accessing them
+    initialize_upscale_models()
 
     checkpointloadersimple = CheckpointLoaderSimple()
     flux_model = COMFYUI_UPSCALE_MODELS["checkpointloadersimple_48"]

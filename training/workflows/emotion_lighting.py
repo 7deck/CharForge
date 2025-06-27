@@ -7,7 +7,6 @@ from typing import Sequence, Mapping, Any, Union
 
 from install import COMFYUI_PATH
 from .tools import LoadImageFromPath, save_comfy_images
-from .upscale_grid_image import COMFYUI_UPSCALE_MODELS
 
 """
 To avoid loading the models each time, we store them in a global variable.
@@ -152,13 +151,17 @@ from nodes import (
 @torch.inference_mode()
 def load_models():
     """Load all the models needed for the emotion lighting pipeline and return them in a dictionary."""
-    from .upscale_grid_image import initialize_upscale_models
+    from . import upscale_grid_image
     
     # Ensure upscale models are loaded before accessing them
-    initialize_upscale_models()
+    upscale_grid_image.initialize_upscale_models()
+    
+    # Check if the upscale models were successfully initialized
+    if upscale_grid_image.COMFYUI_UPSCALE_MODELS is None:
+        raise ValueError("Failed to initialize upscale models. COMFYUI_UPSCALE_MODELS is None.")
 
     checkpointloadersimple = CheckpointLoaderSimple()
-    flux_model = COMFYUI_UPSCALE_MODELS["checkpointloadersimple_48"]
+    flux_model = upscale_grid_image.COMFYUI_UPSCALE_MODELS["checkpointloadersimple_48"]
 
     checkpointloadersimple_726 = checkpointloadersimple.load_checkpoint(
         ckpt_name="photon.safetensors"

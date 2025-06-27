@@ -186,13 +186,12 @@ def load_models(upscale_model: str = "4x-ClearRealityV1.pth"):
 def initialize_upscale_models(upscale_model: str = "4x-ClearRealityV1.pth"):
     """Initialize the models if they haven't been loaded yet."""
     global COMFYUI_UPSCALE_MODELS
+    
+    # Always check the actual state of the global variable, not just if it was previously initialized
     if COMFYUI_UPSCALE_MODELS is None:
+        print(f"Initializing upscale models with model: {upscale_model}")
         import_custom_nodes()  # Ensure NODE_CLASS_MAPPINGS is initialized
         COMFYUI_UPSCALE_MODELS = load_models(upscale_model)
-
-
-# TODO: comment this out for now
-# initialize_upscale_models()
 
 
 def cleanup_models():

@@ -32,6 +32,8 @@ def get_value_at_index(obj: Union[Sequence, Mapping], index: int) -> Any:
     Raises:
         IndexError: If the index is out of bounds for the object and the object is not a mapping.
     """
+    if obj is None:
+        raise ValueError(f"Cannot get value at index {index} from None object. Check if model loading succeeded.")
     try:
         return obj[index]
     except KeyError:
@@ -189,7 +191,8 @@ def initialize_upscale_models(upscale_model: str = "4x-ClearRealityV1.pth"):
         COMFYUI_UPSCALE_MODELS = load_models(upscale_model)
 
 
-initialize_upscale_models()
+# TODO: comment this out for now
+# initialize_upscale_models()
 
 
 def cleanup_models():

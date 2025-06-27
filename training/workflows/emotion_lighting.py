@@ -48,6 +48,9 @@ def get_value_at_index(obj: Union[Sequence, Mapping], index: int) -> Any:
     Raises:
         IndexError: If the index is out of bounds for the object and the object is not a mapping.
     """
+    if obj is None:
+        raise ValueError(f"Cannot get value at index {index} from None object. Check if model loading succeeded.")
+    
     try:
         return obj[index]
     except KeyError:
